@@ -1,0 +1,17 @@
+services:
+  - type: web
+    name: healthier-templates-api
+    runtime: node
+    plan: free
+    buildCommand: corepack enable && pnpm install --frozen-lockfile --prod=false && pnpm --filter @workspace/api-server build
+    startCommand: pnpm --filter @workspace/db push && node artifacts/api-server/dist/index.cjs
+    healthCheckPath: /api/healthz
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: DATABASE_URL
+        sync: false
+      - key: ADMIN_INITIAL_PASSWORD
+        sync: false
+      - key: FRONTEND_ORIGIN
+        sync: false

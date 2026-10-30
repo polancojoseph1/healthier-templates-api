@@ -1,0 +1,3 @@
+packages:
+  - artifacts/api-server
+  - lib/*

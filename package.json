@@ -1,0 +1,9 @@
+{
+  "name": "healthier-templates-api",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "build": "pnpm --filter @workspace/api-server build"
+  },
+  "packageManager": "pnpm@9.1.1"
+}
